@@ -1,6 +1,6 @@
 "use client"
 import { ProfileLazy } from "@/_types/profile"
-import { ProfileAvatar } from "@/app/components/profile-avatar"
+import { ProfileAvatar } from "../avatar/profile-avatar"
 
 type SearchResultsProps = {
   profiles: ProfileLazy[],

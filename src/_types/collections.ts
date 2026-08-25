@@ -1,0 +1,26 @@
+import { PostLazy, Slide } from "./posts";
+import { ProfileLazy } from "./profile";
+
+interface CollectionBase {
+  publicId: string;
+  name: string;
+  description: string | null;
+  createdAt: Date;
+  likes: number;
+  private: boolean;
+}
+
+interface CollectionPost {
+  publicId: string;
+  position: number;
+  post: PostLazy;
+}
+
+export interface CollectionLazy extends CollectionBase {
+  slides: Slide[];
+}
+
+export interface CollectionRes extends CollectionBase {
+  owner: ProfileLazy;
+  posts: CollectionPost[];
+}

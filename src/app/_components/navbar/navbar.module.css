@@ -1,0 +1,35 @@
+.navbar {
+  border-top: var(--border-sm);
+  border-bottom: var(--border-sm);
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+}
+.navbar > * {
+  height: 100%;
+  align-items: center;
+}
+.logo {
+  border-right: var(--border-sm);
+  width: 240px;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  margin-right: 36px;
+  gap: 10px;
+}
+.searchbar {
+  border-right: var(--border-sm);
+  border-left: var(--border-sm);
+  width: 450px;
+}
+.menu {
+  display: flex;
+  gap: 35px;
+  margin-left: auto;
+  padding: 0 30px;
+}

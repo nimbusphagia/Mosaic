@@ -1,5 +1,4 @@
 .card {
-  background-color: var(--light-blue);
   min-width: 300px;
   margin: auto;
   padding: 1.2rem 1.5rem;
@@ -12,16 +11,13 @@
 }
 .form-item {
   font-weight: 600;
-  color: var(--dark-blue);
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 .form-item input {
   font-weight: normal;
-  color: var(--light-yellow);
   padding: 4px 10px;
-  background-color: var(--dark-blue-50);
   border-radius: var(--radius-sm);
 }
 
@@ -36,16 +32,10 @@
   padding: 2px;
 }
 .button-container .success-button {
-  color: var(--dark-blue);
-  border-color: var(--dark-blue);
 }
 .button-container .success-button:hover {
-  background-color: var(--dark-blue);
-  border-color: var(--dark-blue-50);
-  color: var(--light-blue);
 }
 .links {
-  color: var(--dark-blue);
   display: flex;
   gap: 10;
 }

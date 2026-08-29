@@ -1,9 +1,10 @@
 import { appTitle } from "@/_lib/constants"
 
 type LogoProps = {
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg",
+  containerClass?: string,
 }
-export function Logo({ size = "md" }: LogoProps) {
+export function Logo({ containerClass, size = "md" }: LogoProps) {
   const sizeClasses = {
     sm: 'h-6 w-auto',
     md: 'h-10 w-auto',
@@ -11,7 +12,7 @@ export function Logo({ size = "md" }: LogoProps) {
   };
   return (
     <div
-      className={`${sizeClasses[size]} flex items-center justify-center overflow-hidden`}
+      className={`${sizeClasses[size]} ${containerClass ?? ""} flex items-center justify-center overflow-hidden`}
     >
       <img
         src="/logo.jpg"

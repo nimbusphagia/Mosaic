@@ -1,9 +1,10 @@
 type AvatarImageProps = {
   src: string,
   alt?: string,
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg",
+  containerClass?: string,
 }
-export function AvatarImage({ src, alt, size = "sm" }: AvatarImageProps) {
+export function AvatarImage({ src, alt, containerClass, size = "sm" }: AvatarImageProps) {
   const sizeClasses = {
     sm: 'h-6 w-auto',
     md: 'h-10 w-auto',
@@ -11,7 +12,7 @@ export function AvatarImage({ src, alt, size = "sm" }: AvatarImageProps) {
   };
   return (
     <div
-      className={`${sizeClasses[size]} flex items-center justify-center overflow-hidden`}
+      className={`${sizeClasses[size]} ${containerClass} flex items-center justify-center overflow-hidden`}
     >
       <img
         src={src}

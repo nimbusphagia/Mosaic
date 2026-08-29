@@ -2,19 +2,11 @@
 
 :root {
   --background: #f5e8dd;
-  --foreground: #829093;
-  --foreground-50: rgb(130, 144, 147, 0.5);
-  --light-blue: #b5c0d0;
-  --dark-blue: rgb(121, 140, 168);
-  --dark-blue-50: rgb(121, 140, 168, 0.5);
-  --light-green: #ccd3ca;
-  --dark-green: #95a7c2;
-  --light-yellow: #f5e8dd;
-  --light-pink: #eed3d9;
-  --dark-pink: #f5ccc1;
+  --foreground: black;
   --radius-sm: 3px;
   --radius-md: 5px;
   --radius-lg: 8px;
+  --border-sm: 1px solid var(--foreground);
 }
 
 @theme inline {

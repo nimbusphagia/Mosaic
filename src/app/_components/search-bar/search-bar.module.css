@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.container > * {
+  flex: 1;
+}
+
+.bar {
+  display: flex;
+  width: 100%;
+}
+.bar input {
+  flex: 1;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: center;
+}
+.bar button {
+  padding: 0 10px;
+}
+.results-container {
+  position: absolute;
+  bottom: -100%;
+  border: var(--border-sm);
+  width: 100%;
+  background-color: var(--background);
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.result {
+  display: flex;
+  padding: 5px;
+}

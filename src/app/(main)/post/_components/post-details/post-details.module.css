@@ -1,0 +1,23 @@
+.body {
+  border: var(--border-sm);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 15px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h2 {
+  font-size: 20px;
+}
+.header p {
+  font-size: 13px;
+}
+
+.description {
+  font-style: italic;
+}

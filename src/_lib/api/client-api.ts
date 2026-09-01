@@ -1,8 +1,3 @@
-import "server-only";
-import { getAccessToken } from "./get-access-token";
-
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
 export class ApiError extends Error {
   status: number;
   info: unknown;
@@ -13,24 +8,19 @@ export class ApiError extends Error {
   }
 }
 
-type ApiClientOptions = RequestInit & { auth?: boolean };
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function apiClient<T>(
+export async function clientApiFetch<T>(
   path: string,
-  options: ApiClientOptions = {},
+  options: RequestInit = {},
 ): Promise<T> {
-  const { auth, headers, ...rest } = options;
+  const { headers, ...rest } = options;
   const isFormData = rest.body instanceof FormData;
 
   const finalHeaders: Record<string, string> = {
     ...(!isFormData && { "Content-Type": "application/json" }),
     ...(headers as Record<string, string>),
   };
-
-  if (auth) {
-    const token = await getAccessToken();
-    if (token) finalHeaders["Authorization"] = `Bearer ${token}`;
-  }
 
   const response = await fetch(`${BASE_URL}${path}`, {
     credentials: "include",

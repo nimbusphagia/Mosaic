@@ -3,14 +3,14 @@ import { SubmitEventHandler, useState } from "react";
 import style from "../auth.module.css"
 import { useRouter } from "next/navigation";
 import useSWRMutation from "swr/mutation";
-import { apiClient } from "@/_lib/api-client";
+import { clientApiFetch } from "@/_lib/api/client-api";
 
 type LoginReq = {
   email: string,
   password: string,
 }
 async function loginRequest(url: string, { arg }: { arg: LoginReq }) {
-  return apiClient(url, { method: 'POST', body: JSON.stringify(arg) })
+  return clientApiFetch(url, { method: 'POST', body: JSON.stringify(arg) })
 }
 
 export default function LoginPage() {

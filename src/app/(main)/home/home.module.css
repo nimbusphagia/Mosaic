@@ -1,0 +1,15 @@
+.body {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  gap: 50px;
+}
+.recommendations {
+  width: 28%;
+  border-left: var(--border-sm);
+}

@@ -14,6 +14,7 @@ export default function SearchResults({ profiles }: SearchResultsProps) {
           <ProfileAvatar
             key={p.publicId}
             profile={p}
+            redirect={true}
             containerClass={styles.result}
           />
         )

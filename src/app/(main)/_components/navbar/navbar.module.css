@@ -1,4 +1,8 @@
 .navbar {
+  background-color: var(--background);
+  position: sticky;
+  top: 0;
+
   border-top: var(--border-sm);
   border-bottom: var(--border-sm);
   display: flex;
@@ -13,7 +17,7 @@
 }
 .logo {
   border-right: var(--border-sm);
-  width: 240px;
+  width: 200px;
 }
 .nav-links {
   display: flex;

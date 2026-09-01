@@ -16,7 +16,6 @@ export default async function PostPage({ params }: PostPageProps) {
   const { postId } = await params;
   const post = await loadPost(postId);
 
-
   return (
     <div className={postStyles["body"]}>
       <header className={postStyles["header"]}>

@@ -8,6 +8,7 @@ import ReturnButton from "../../_components/navigation/return-button/return-butt
 import ProfileCard from "../../_components/profile-card/profile-card";
 import PostDetails from "../_components/post-details/post-details";
 import { format } from "date-fns";
+import SlideImg from "../../_components/slide-img/slide-img";
 
 type PostPageProps = {
   params: Promise<{ postId: string }>
@@ -36,9 +37,12 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className={postStyles["slides-container"]}>
           {post.slides.map((s) => {
             return (
-              <SlideLg
+              <SlideImg
                 key={s.publicId}
-                slide={s} />
+                slide={s}
+                imgFit="contain"
+                wrapperClass="h-[90vh]"
+              />
             )
           })}
         </div>

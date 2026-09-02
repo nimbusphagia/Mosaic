@@ -26,14 +26,3 @@
   gap: 15px;
   width: 100%;
 }
-.slide-md {
-  background-color: rgb(0, 0, 0, 0.95);
-  width: 100%;
-}
-.slide-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
-  object-fit: contain;
-  object-position: center;
-}

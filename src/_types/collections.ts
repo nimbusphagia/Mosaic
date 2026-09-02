@@ -6,6 +6,7 @@ interface CollectionBase {
   name: string;
   description: string | null;
   createdAt: Date;
+  owner: ProfileLazy;
   likes: number;
   private: boolean;
 }
@@ -21,6 +22,5 @@ export interface CollectionLazy extends CollectionBase {
 }
 
 export interface CollectionRes extends CollectionBase {
-  owner: ProfileLazy;
   posts: CollectionPost[];
 }

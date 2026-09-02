@@ -3,6 +3,8 @@
 }
 
 .main {
+  min-height: calc(96vh);
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +12,6 @@
   gap: 50px;
 }
 .recommendations {
-  width: 28%;
+  width: 26%;
   border-left: var(--border-sm);
 }

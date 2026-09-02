@@ -9,9 +9,10 @@ export default async function HomePage() {
     <div className={homeStyles.body}>
       <main className={homeStyles["main"]}>
         {homeItems.map((i) => {
+          const isCollection = i.type === "COLLECTION";
           return (
             <HomeItem
-              key={i.type === "COLLECTION" ? i.collection.publicId : i.post.publicId}
+              key={isCollection ? i.collection.publicId : i.post.publicId}
               item={i} />
           )
         })}

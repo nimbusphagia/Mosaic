@@ -1,6 +1,6 @@
 import cardStyles from "../../content-cards.module.css"
 import { Slide } from "@/_types/posts"
-import SlideMd from "./slide-md"
+import SlideImg from "../../../slide-img/slide-img"
 
 type CardSlidesProps = {
   slides: Slide[],
@@ -8,10 +8,10 @@ type CardSlidesProps = {
 export default function CardSlides({ slides }: CardSlidesProps) {
   return (
     <div className={cardStyles["slides-container"]}>
-      {<SlideMd slide={slides[0]} />}
+      {<SlideImg slide={slides[0]} />}
       {/*slides.map((s) => {
         return (
-          <SlideMd
+          <SlideImg
             key={s.publicId}
             slide={s} />
         )

@@ -1,43 +1,57 @@
-"use client"
-import { ProfileLazy } from "@/_types/profile"
-import cardStyles from "./profile-card.module.css"
+import { FollowStatus, ProfileLazy } from "@/_types/profile"
+import cardStyle from "./profile-card.module.css"
 import AvatarImage from "../avatar/avatar-image"
-import { useRouter } from "next/navigation"
+import FollowButton from "../follow-button/follow-button"
+import Link from "next/link"
+import { apiClient } from "@/_lib/api/api-client"
 
 type ProfileCardProps = {
   profile: ProfileLazy,
+  currentPath: string,
+  followingStatus: FollowStatus,
   containerClass?: string,
 }
-export default function ProfileCard({ profile, containerClass }: ProfileCardProps) {
-  const router = useRouter();
-  const handleRedirect = () => {
-    router.push(`/profile/${profile.publicId}`)
-  }
+export default async function ProfileCard({ profile, followingStatus, currentPath, containerClass }: ProfileCardProps) {
+  const profileUrl = `/profile/${profile.publicId}`;
+
   return (
     <div
-      className={`${cardStyles["card"]} ${containerClass}`}>
+      className={`${cardStyle["card"]} ${containerClass}`}>
       <header
-        className={cardStyles["header"]}
-        onClick={handleRedirect}
+        className={cardStyle["header"]}
       >
         <AvatarImage
           src={profile.picture.media!.url}
           alt="Profile picture"
           size="lg"
-          containerClass={cardStyles["header-picture"]}
+          containerClass={cardStyle["header-picture"]}
         />
-        <h2 className={cardStyles["header-title"]}>
-          {profile.nickname}
-        </h2>
+        <Link
+          href={profileUrl}
+          className={cardStyle["link-wrapper"]}
+        >
+          <h2 className={cardStyle["header-title"]}>
+            {profile.nickname}
+          </h2>
+        </Link>
       </header>
-      <div className={cardStyles["body"]}>
-        <div className={cardStyles["actions"]}>
-          <button>Follow</button>
-          <button>Message</button>
+      <div className={cardStyle["body"]}>
+        {
+          !followingStatus.isSelf &&
+          <div className={cardStyle["actions"]}>
+            <FollowButton
+              profileId={profile.publicId}
+              isFollowing={followingStatus.following}
+              currentPath={currentPath}
+            />
+            <button>Message</button>
 
-        </div>
+          </div>
+
+        }
       </div>
     </div>
 
   )
 }
+

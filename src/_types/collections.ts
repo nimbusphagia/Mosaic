@@ -3,7 +3,7 @@ import { ProfileLazy } from "./profile";
 
 interface CollectionBase {
   publicId: string;
-  name: string;
+  title: string;
   description: string | null;
   createdAt: Date;
   owner: ProfileLazy;

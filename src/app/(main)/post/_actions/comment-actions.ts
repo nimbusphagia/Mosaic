@@ -13,5 +13,5 @@ export async function handleCommentSubmit(formData: FormData) {
     body: JSON.stringify({ comment }),
   });
 
-  revalidatePath(`/posts/${postId}`);
+  revalidatePath(`/post/${postId}`);
 }

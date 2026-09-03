@@ -14,7 +14,6 @@ export default function ProfileAvatar({ profile, redirect, containerClass }: Pro
   const router = useRouter();
   const handleRedirect = () => {
     if (!redirect) return;
-    console.log(profile.publicId)
     router.push(`/profile/${profile.publicId}`)
   }
   return (

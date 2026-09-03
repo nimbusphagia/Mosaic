@@ -22,7 +22,7 @@
 }
 .results-container {
   position: absolute;
-  bottom: -100%;
+  bottom: -200%;
   border: var(--border-sm);
   width: 100%;
   background-color: var(--background);

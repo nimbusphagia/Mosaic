@@ -2,13 +2,14 @@ import postStyles from "./post.module.css"
 import { PostRes } from "@/_types/posts";
 import { apiClient } from "@/_lib/api/api-client";
 import ProfileAvatar from "../../_components/avatar/profile-avatar";
-import SlideLg from "../_components/slide/slide-lg"
 import CommentSection from "../_components/comment-section/comment-section";
 import ReturnButton from "../../_components/navigation/return-button/return-button";
 import ProfileCard from "../../_components/profile-card/profile-card";
 import PostDetails from "../_components/post-details/post-details";
 import { format } from "date-fns";
 import SlideImg from "../../_components/slide-img/slide-img";
+import { FollowStatus } from "@/_types/profile";
+import FollowButton from "../../_components/follow-button/follow-button";
 
 type PostPageProps = {
   params: Promise<{ postId: string }>
@@ -16,6 +17,7 @@ type PostPageProps = {
 export default async function PostPage({ params }: PostPageProps) {
   const { postId } = await params;
   const post = await loadPost(postId);
+  const followingStatus = await loadFollowingStatus(post.author.publicId);
 
   return (
     <div className={postStyles["body"]}>
@@ -26,7 +28,13 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
 
         <div className={postStyles["header-info"]}>
-          <button>Follow</button>
+          {!followingStatus.isSelf &&
+            <FollowButton
+              profileId={post.author.publicId}
+              isFollowing={followingStatus.following}
+              currentPath={`/post/${postId}`}
+            />
+          }
           <ProfileAvatar
             profile={post.author}
             redirect={true}
@@ -54,11 +62,11 @@ export default async function PostPage({ params }: PostPageProps) {
             description={post.description ?? ""}
             createdAt={format(post.createdAt, "MMM do, yyyy")}
           />
-
           <ProfileCard
             profile={post.author}
+            currentPath={`post/${postId}`}
+            followingStatus={followingStatus}
           />
-
         </div>
         <CommentSection
           containerClass={postStyles["comments-section"]}
@@ -74,5 +82,7 @@ async function loadPost(postId: string): Promise<PostRes> {
     `/posts/${postId}`, { auth: true })
   return post;
 }
-
+async function loadFollowingStatus(profileId: string): Promise<FollowStatus> {
+  return apiClient<FollowStatus>(`/profiles/${profileId}/follow`, { auth: true, method: "GET" });
+}
 

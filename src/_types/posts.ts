@@ -5,6 +5,7 @@ import { ProfileLazy } from "./profile";
 interface PostBase {
   publicId: string;
   slides: Slide[];
+  title: string;
   description: string | null;
   author: ProfileLazy;
   createdAt: Date;

@@ -16,6 +16,7 @@ export default function Searchbar({ containerClass }: SearchbarProps) {
 
   const handleSearch = (formData: FormData) => {
     startTransition(async () => {
+      setResults([])
       setShow(true);
       const profiles = await searchAction(formData);
       setResults(profiles);

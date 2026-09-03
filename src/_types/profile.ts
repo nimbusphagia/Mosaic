@@ -21,3 +21,9 @@ export interface ProfileRes extends ProfileLazy {
   reposts: RepostLazy[];
   collections: CollectionLazy[];
 }
+
+export interface FollowStatus {
+  following: boolean;
+  followedBy: boolean;
+  isSelf: boolean;
+}

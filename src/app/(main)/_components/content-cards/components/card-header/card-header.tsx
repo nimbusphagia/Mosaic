@@ -1,5 +1,5 @@
 import cardStyles from "../../content-cards.module.css"
-import { HomeFeedItem, HomeItemType } from "@/_types/feed"
+import { HomeItemType } from "@/_types/feed"
 import { formatDistanceToNow } from "date-fns"
 import ProfileAvatar from "../../../avatar/profile-avatar"
 import { ProfileLazy } from "@/_types/profile"
